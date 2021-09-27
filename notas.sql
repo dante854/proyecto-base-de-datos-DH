@@ -1,1 +1,0 @@
-INSERT INTO `notas_db`.`notas` (`id`, `titulo`, `fecha_de_creacion`, `descripcion`, `usuarios_id`, `id_categoria`) VALUES ('3', 'El juego más vendido', '2021-9-26', 'El videojuego mas vendido de la historia es Grand Theft Auto V', '4', '4')
