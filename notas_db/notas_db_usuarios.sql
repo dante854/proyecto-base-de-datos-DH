@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` json NOT NULL,
-  `apellido` json NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `apellido` varchar(45) NOT NULL,
   `e-mail` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `e-mail_UNIQUE` (`e-mail`)
@@ -38,7 +38,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'\"Dante\"','\"Bairatti\"','bairattidante@gmail.com'),(2,'\"Juan\"','\"Rojas\"','jrojas@gmail.com'),(3,'\"Damian\"','\"Robledo\"','drobledo@gmail.com'),(4,'\"Tomas\"','\"Torres\"','tomitorres@gmail.com'),(5,'\"Daniel\"','\"Gonzalez\"','dgonzalez@gmail.com'),(6,'\"Juana\"','\"Cruz\"','juanacruz@gmail.com'),(7,'\"Christian\"','\"Panetta\"','cpanetta@digitalhouse.com'),(8,'\"Jose\"','\"Ramos\"','jramos@gmail.com'),(9,'\"Lionel\"','\"Messi\"','lionel10@gmail.com'),(10,'\"Cristiano\"','\"Ronaldo\"','elbichosiuuu@gmail.com');
+INSERT INTO `usuarios` VALUES (1,'Dante','Bairatti','Bairattidante@gmail.com'),(2,'Juan','Rojas','jrojas@gmail.com'),(3,'Damian','Robledo','drobledo@gmail.com'),(4,'Tomas','Torres','tomitorres@gmail.com'),(5,'Daniel ','Gonzalez','dgonzalez@gmail.com'),(6,'Juana','Cruz','juanacruz@gmail.com'),(7,'Christian ','Panetta','cpanetta@gmail.com'),(8,'Jose ','Ramos','jramos@gmail.com'),(9,'Lionel ','Messi','leo10@gmail.com'),(10,'Cristiano ','Ronaldo','elbichosiuu@gmail.com');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-27 16:50:54
+-- Dump completed on 2021-09-27 20:31:27

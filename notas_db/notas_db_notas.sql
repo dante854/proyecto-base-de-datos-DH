@@ -23,19 +23,17 @@ DROP TABLE IF EXISTS `notas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `notas` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) DEFAULT NULL,
   `fecha_de_creacion` date NOT NULL,
   `fecha_ultima_modificacion` date DEFAULT NULL,
   `descripcion` text NOT NULL,
   `usuarios_id` int NOT NULL,
-  `id_categoria` int NOT NULL,
-  PRIMARY KEY (`id`,`usuarios_id`,`id_categoria`),
+  `categoria` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`,`usuarios_id`),
   KEY `fk_notas_usuarios_idx` (`usuarios_id`),
-  KEY `fk_notas_categorias_notas1_idx` (`id_categoria`),
-  CONSTRAINT `fk_notas_categorias_notas1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias_notas` (`id`),
   CONSTRAINT `fk_notas_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +42,7 @@ CREATE TABLE `notas` (
 
 LOCK TABLES `notas` WRITE;
 /*!40000 ALTER TABLE `notas` DISABLE KEYS */;
-INSERT INTO `notas` VALUES (1,'Uno mas uno','2021-09-27',NULL,'Sumar 1+1 = 2',1,5),(2,'El pintor de la Mona Lisa','2021-09-27',NULL,'El pintor de la Mona Lisa fue Leonardo Da Vinci',2,1),(3,'El animal mas grande','2021-09-27',NULL,'El animal mas grande es la ballena azul',3,5),(3,'El juego más vendido','2021-09-26',NULL,'El videojuego mas vendido de la historia es Grand Theft Auto V',4,4),(4,'La banda mas exitosa','2021-09-27',NULL,'La banda mas exitoosa de la historia son Los Beatles',4,2),(5,'El juego mas vendido','2021-09-27',NULL,'El juego mas vendido de la historia es el GTA V',5,4),(6,'La pelicula mas taquillera','2021-09-27',NULL,'La pelicula mas taquillera es Avengers : End Game',6,3),(7,'El mejor jugador de la historia','2021-09-27',NULL,'El mejor jugador de la historia es y sera Lionel Messi ',7,6),(8,'El animal con mas poblacion','2021-09-27',NULL,'El animal con mas poblacion es la mosca',8,5),(9,'El ultimo campeon de America','2021-09-27',NULL,'El ultimo campeon de la Copa America fue Argentina',9,6),(10,'La pelicula mas premiada','2021-09-27',NULL,'La pelicula con mas oscars y otros premios es Titanic',10,3);
+INSERT INTO `notas` VALUES (1,'Uno mas uno','2021-09-27',NULL,'Sumar 1+1 = 2\'',1,NULL),(2,'\'El pintor de la Mona Lisa','2021-09-27',NULL,'El pintor de la Mona Lisa fue Leonardo Da Vinci',2,NULL),(3,'El animal mas grande','2021-09-27',NULL,'El animal mas grande es la ballena azul',3,NULL),(4,'El juego más vendido','2021-09-27',NULL,'El videojuego mas vendido de la historia es Grand Theft Auto V',4,NULL),(5,'La banda mas exitosa','2021-09-27',NULL,'La banda mas exitoosa de la historia son Los Beatles',5,NULL),(6,'La pelicula mas taquillera','2021-09-27',NULL,'La pelicula mas taquillera es Avengers : End Game',6,NULL),(7,'El mejor jugador de la historia','2021-09-27',NULL,'El mejor jugador de la historia es y sera Lionel Messi',7,NULL),(8,'El animal con mas poblacion','2021-09-27',NULL,'El animal con mas poblacion es la mosca',8,NULL),(9,'El ultimo campeon de America','2021-09-27',NULL,'El ultimo campeon de la Copa America fue Argentina',9,NULL),(10,'La pelicula mas premiada','2021-09-27',NULL,'La pelicula con mas oscars y otros premios es Titanic',10,NULL);
 /*!40000 ALTER TABLE `notas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-27 16:50:54
+-- Dump completed on 2021-09-27 20:31:27

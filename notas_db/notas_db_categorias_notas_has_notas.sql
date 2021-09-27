@@ -16,27 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `categorias_notas`
+-- Table structure for table `categorias_notas_has_notas`
 --
 
-DROP TABLE IF EXISTS `categorias_notas`;
+DROP TABLE IF EXISTS `categorias_notas_has_notas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `categorias_notas` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `categorias_notas_has_notas` (
+  `categorias_notas_id` int NOT NULL,
+  `notas_id` int NOT NULL,
+  PRIMARY KEY (`categorias_notas_id`,`notas_id`),
+  KEY `fk_categorias_notas_has_notas_notas1_idx` (`notas_id`),
+  KEY `fk_categorias_notas_has_notas_categorias_notas1_idx` (`categorias_notas_id`),
+  CONSTRAINT `fk_categorias_notas_has_notas_categorias_notas1` FOREIGN KEY (`categorias_notas_id`) REFERENCES `categorias_notas` (`id`),
+  CONSTRAINT `fk_categorias_notas_has_notas_notas1` FOREIGN KEY (`notas_id`) REFERENCES `notas` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `categorias_notas`
+-- Dumping data for table `categorias_notas_has_notas`
 --
 
-LOCK TABLES `categorias_notas` WRITE;
-/*!40000 ALTER TABLE `categorias_notas` DISABLE KEYS */;
-INSERT INTO `categorias_notas` VALUES (1,'Musica'),(2,'Arte'),(3,'Deportes'),(4,'Cine'),(5,'Videojuegos'),(6,'Ciencia');
-/*!40000 ALTER TABLE `categorias_notas` ENABLE KEYS */;
+LOCK TABLES `categorias_notas_has_notas` WRITE;
+/*!40000 ALTER TABLE `categorias_notas_has_notas` DISABLE KEYS */;
+INSERT INTO `categorias_notas_has_notas` VALUES (6,1),(2,2),(6,3),(5,4),(1,5),(4,6),(3,7),(6,8),(3,9),(4,10);
+/*!40000 ALTER TABLE `categorias_notas_has_notas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
